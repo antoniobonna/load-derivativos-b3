@@ -28,6 +28,8 @@ while (1):
             bot.sendMessage(channelID,'Novo e-mail recebido da B3 às {} '.format(datetime) + OK)
             attachment = thread.messages[0].attachments[0] ### pega o nome do anexo
             thread.messages[0].downloadAttachment(attachment, indir)
-            # call(,shell=True)
+            call('python '+indir+'parseResult.py',shell=True)
+            call('python '+indir+'new_writeExcel.py',shell=True)
+            call('python '+indir+'sendEmail.py',shell=True)
             exit(0)
     sleep(60)
